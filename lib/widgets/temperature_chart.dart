@@ -44,7 +44,8 @@ class TemperatureChart extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Icon(Icons.show_chart_rounded, color: Colors.indigo, size: 22),
+                const Icon(Icons.show_chart_rounded,
+                    color: Colors.indigo, size: 22),
                 const SizedBox(width: 8),
                 Text(
                   'Variação de Temperatura',
@@ -58,7 +59,8 @@ class TemperatureChart extends StatelessWidget {
             // Legenda
             Row(
               children: [
-                _buildLegendItem(color: Colors.deepOrangeAccent, label: 'Máxima'),
+                _buildLegendItem(
+                    color: Colors.deepOrangeAccent, label: 'Máxima'),
                 const SizedBox(width: 16),
                 _buildLegendItem(color: Colors.blueAccent, label: 'Mínima'),
               ],
@@ -77,14 +79,16 @@ class TemperatureChart extends StatelessWidget {
                     drawVerticalLine: false,
                     horizontalInterval: 2,
                     getDrawingHorizontalLine: (value) => FlLine(
-                      color: Colors.grey.withOpacity(0.15),
+                      color: Colors.grey.withValues(alpha: 0.15),
                       strokeWidth: 1,
                     ),
                   ),
                   titlesData: FlTitlesData(
                     show: true,
-                    topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                    rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    topTitles: const AxisTitles(
+                        sideTitles: SideTitles(showTitles: false)),
+                    rightTitles: const AxisTitles(
+                        sideTitles: SideTitles(showTitles: false)),
                     leftTitles: AxisTitles(
                       sideTitles: SideTitles(
                         showTitles: true,
@@ -152,8 +156,8 @@ class TemperatureChart extends StatelessWidget {
                         show: true,
                         gradient: LinearGradient(
                           colors: [
-                            Colors.deepOrangeAccent.withOpacity(0.2),
-                            Colors.deepOrangeAccent.withOpacity(0.0),
+                            Colors.deepOrangeAccent.withValues(alpha: 0.2),
+                            Colors.deepOrangeAccent.withValues(alpha: 0.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -183,8 +187,8 @@ class TemperatureChart extends StatelessWidget {
                         show: true,
                         gradient: LinearGradient(
                           colors: [
-                            Colors.blueAccent.withOpacity(0.2),
-                            Colors.blueAccent.withOpacity(0.0),
+                            Colors.blueAccent.withValues(alpha: 0.2),
+                            Colors.blueAccent.withValues(alpha: 0.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,

@@ -46,7 +46,8 @@ class _ForecastScreenState extends State<ForecastScreen> {
     });
 
     try {
-      final previsao = await widget.cptecService.getPrevisao4Dias(widget.cidade.id);
+      final previsao =
+          await widget.cptecService.getPrevisao4Dias(widget.cidade.id);
 
       // Salva no cache local para persistência offline
       await widget.storageService.salvarCachePrevisao(previsao);
@@ -70,7 +71,8 @@ class _ForecastScreenState extends State<ForecastScreen> {
           });
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Sem conexão. Exibindo previsão salva em ${DateFormat("dd/MM 'às' HH:mm").format(cache.dataConsultaLocal)}.'),
+              content: Text(
+                  'Sem conexão. Exibindo previsão salva em ${DateFormat("dd/MM 'às' HH:mm").format(cache.dataConsultaLocal)}.'),
               backgroundColor: Colors.orange.shade800,
               duration: const Duration(seconds: 4),
             ),
@@ -86,7 +88,8 @@ class _ForecastScreenState extends State<ForecastScreen> {
   }
 
   Future<void> _toggleFavorito() async {
-    final novoEstado = await widget.storageService.toggleFavorito(widget.cidade);
+    final novoEstado =
+        await widget.storageService.toggleFavorito(widget.cidade);
     setState(() {
       _isFavorite = novoEstado;
     });
@@ -111,7 +114,8 @@ class _ForecastScreenState extends State<ForecastScreen> {
       appBar: AppBar(
         title: Text(
           widget.cidade.nomeFormatado,
-          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          style:
+              const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         backgroundColor: Colors.indigo.shade700,
         iconTheme: const IconThemeData(color: Colors.white),
@@ -122,7 +126,8 @@ class _ForecastScreenState extends State<ForecastScreen> {
               _isFavorite ? Icons.star_rounded : Icons.star_outline_rounded,
               color: _isFavorite ? Colors.amber.shade300 : Colors.white,
             ),
-            tooltip: _isFavorite ? 'Remover dos favoritos' : 'Favoritar localidade',
+            tooltip:
+                _isFavorite ? 'Remover dos favoritos' : 'Favoritar localidade',
             onPressed: _toggleFavorito,
           ),
           // Botão de Atualizar (Requisito 3)
@@ -164,7 +169,8 @@ class _ForecastScreenState extends State<ForecastScreen> {
 
     if (_previsao == null || _previsao!.dias.isEmpty) {
       return ErrorView(
-        message: 'Nenhuma previsão disponível para ${widget.cidade.nomeFormatado}.',
+        message:
+            'Nenhuma previsão disponível para ${widget.cidade.nomeFormatado}.',
         onRetry: _carregarPrevisao,
         icon: Icons.cloud_off_rounded,
       );
@@ -265,7 +271,7 @@ class _ForecastScreenState extends State<ForecastScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.indigo.withOpacity(0.3),
+            color: Colors.indigo.withValues(alpha: 0.3),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -288,9 +294,10 @@ class _ForecastScreenState extends State<ForecastScreen> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -325,7 +332,8 @@ class _ForecastScreenState extends State<ForecastScreen> {
           const SizedBox(height: 4),
           Row(
             children: [
-              const Icon(Icons.access_time_rounded, size: 16, color: Colors.white70),
+              const Icon(Icons.access_time_rounded,
+                  size: 16, color: Colors.white70),
               const SizedBox(width: 6),
               Text(
                 'Consulta local: ${DateFormat("dd/MM/yyyy 'às' HH:mm").format(_previsao!.dataConsultaLocal)}',
@@ -357,7 +365,8 @@ class _ForecastScreenState extends State<ForecastScreen> {
                 child: Text(
                   'Fonte dos dados: Centro de Previsão de Tempo e Estudos Climáticos (CPTEC / INPE).\n'
                   'Previsão oficial para 4 dias em formato XML.',
-                  style: TextStyle(fontSize: 11, color: Colors.blueGrey, height: 1.3),
+                  style: TextStyle(
+                      fontSize: 11, color: Colors.blueGrey, height: 1.3),
                 ),
               ),
             ],

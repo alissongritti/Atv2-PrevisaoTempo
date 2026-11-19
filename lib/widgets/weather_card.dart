@@ -22,7 +22,8 @@ class WeatherCard extends StatelessWidget {
     try {
       dataFormatada = dateFormat.format(previsao.dia);
       // Capitaliza a primeira letra do dia da semana
-      dataFormatada = dataFormatada[0].toUpperCase() + dataFormatada.substring(1);
+      dataFormatada =
+          dataFormatada[0].toUpperCase() + dataFormatada.substring(1);
     } catch (_) {
       dataFormatada = DateFormat('dd/MM/yyyy').format(previsao.dia);
     }
@@ -36,7 +37,12 @@ class WeatherCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: isToday
-            ? BorderSide(color: Theme.of(context).colorScheme.primary.withOpacity(0.5), width: 1.5)
+            ? BorderSide(
+                color: Theme.of(context)
+                    .colorScheme
+                    .primary
+                    .withValues(alpha: 0.5),
+                width: 1.5)
             : BorderSide.none,
       ),
       child: Padding(
@@ -61,7 +67,8 @@ class WeatherCard extends StatelessWidget {
                 ),
                 if (isToday)
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                     decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.primaryContainer,
                       borderRadius: BorderRadius.circular(12),
@@ -86,7 +93,7 @@ class WeatherCard extends StatelessWidget {
                   width: 52,
                   height: 52,
                   decoration: BoxDecoration(
-                    color: corCondicao.withOpacity(0.12),
+                    color: corCondicao.withValues(alpha: 0.12),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
@@ -128,7 +135,8 @@ class WeatherCard extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.arrow_upward_rounded, size: 16, color: Colors.deepOrangeAccent),
+                        const Icon(Icons.arrow_upward_rounded,
+                            size: 16, color: Colors.deepOrangeAccent),
                         Text(
                           '${previsao.maxima}°C',
                           style: const TextStyle(
@@ -143,7 +151,8 @@ class WeatherCard extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.arrow_downward_rounded, size: 16, color: Colors.blueAccent),
+                        const Icon(Icons.arrow_downward_rounded,
+                            size: 16, color: Colors.blueAccent),
                         Text(
                           '${previsao.minima}°C',
                           style: TextStyle(
