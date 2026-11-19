@@ -179,7 +179,9 @@ class _ForecastScreenState extends State<ForecastScreen> {
     return RefreshIndicator(
       onRefresh: _carregarPrevisao,
       child: ListView(
-        padding: const EdgeInsets.only(bottom: 24),
+        padding: EdgeInsets.only(
+          bottom: 24 + MediaQuery.of(context).padding.bottom,
+        ),
         children: [
           // Banner de Modo Offline se dados vieram do cache
           if (_previsao!.isOfflineData) _buildOfflineBanner(),
