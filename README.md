@@ -148,19 +148,6 @@ Atv2-PrevisaoTempo/
    flutter run
    ```
 
----
-
-## 📷 Capturas de Tela
-
-> As capturas de tela abaixo ilustram os principais fluxos e requisitos atendidos pelo aplicativo.
-
-| 1. Tela Inicial e Busca | 2. Cidades Favoritas & Histórico |
-| :---: | :---: |
-| *(Insira aqui o print da pesquisa de cidades)* | *(Insira aqui o print com favoritos e histórico)* |
-
-| 3. Previsão de 4 Dias e Gráfico | 4. Modo Offline & Tratamento de Erros |
-| :---: | :---: |
-| *(Insira aqui o print com o gráfico e os cards)* | *(Insira aqui o print com o banner offline ou erro)* |
 
 ---
 
